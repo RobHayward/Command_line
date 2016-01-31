@@ -1,0 +1,9 @@
+---
+title: "Command Line"
+author: "RobHayward"
+date: "31 January 2016"
+output: html_document
+---
+
+# Excel files
+The `csvkit` package provides a range of tools to work with excel files and to get information at the command line. There is a walk-through [here.](https://csvkit.readthedocs.org/en/0.9.1/)
