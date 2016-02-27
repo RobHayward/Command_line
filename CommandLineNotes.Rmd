@@ -5,5 +5,55 @@ date: "31 January 2016"
 output: html_document
 ---
 
-# Excel files
+## CSV and excel
 The `csvkit` package provides a range of tools to work with excel files and to get information at the command line. There is a walk-through [here.](https://csvkit.readthedocs.org/en/0.9.1/)
+
+These are the functions
+
+* `n2csv` translates an excel file into a csv
+* `csvcut` select a subset (using -c to select the columns)
+* `csvlook` look at the content of a csv.  Pretty.
+* `csvgrep` finding regular expressions
+
+Sometimes the `csvcut` and `csvlook` commands cannot decode the file. This is because there are characters that are not part of the expected `utf-8` system. The alternatives that can be specified using the `-e` option are 
+
+* `iso-8859-1` normally known as `latin-1` 
+* `utf-16`
+
+## Shell
+The shell looks for commands in each directory in `PATH`. The command
+```
+echo $PATH
+```
+
+will show the list of paths that will be searched. 
+
+```
+PATH=$PATH:$HOME/bin
+```
+
+adds the folder `bin` in the user home directory to the path. To make the change permanent, add the `bin` directory to `$PATH` in `.profile` file using the following command. Just add the following line to the file. This will be read every time that you log in. 
+
+```
+PATH=$PATH:$HOME/bin 
+```
+
+This is outlined in section 2.5.6 in the [Classic Shell Scripting book](https://proyuacouart.wikispaces.com/file/view/Classic_Shell_Scripting.pdf).  
+
+###Downloading data
+Data can be taken from sources using the appropriate command
+
+* `tar` can extract data from gz and zip files. 
+* `unpack` will find the appropriate function to use to extract information
+* `sql2csv` is part of the `csvkit` suite. This will take data from various SQL databases and transform it into a csv file. 
+
+##Scrubbing data
+Start with some text data.  In this case use Alice in Wonderland.  Get the raw data with 
+
+```
+curl -s http://www.gutenberg.org/cache/11/pg11.txt > Alice.txt
+```
+
+
+
+
